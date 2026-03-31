@@ -2,5 +2,6 @@ services:
   - type: web
     name: ai-medical-assistant
     runtime: python
-    buildCommand: pip install -r server/requirements.txt
-    startCommand: python -m uvicorn server.main:app --host 0.0.0.0 --port $PORT
+    rootDir: server
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
