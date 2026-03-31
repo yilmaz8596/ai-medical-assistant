@@ -1,9 +1,9 @@
 
 from fastapi import APIRouter, File, UploadFile
 from typing import List 
-from ..modules.load_vector_store import load_vector_store
+from modules.load_vector_store import load_vector_store
 from fastapi.responses import JSONResponse
-from ..logger import logger
+from logger import logger
 
 router = APIRouter()
 
