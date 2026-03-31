@@ -1,5 +1,5 @@
 
-from logger import logger 
+from ..logger import logger 
 
 def query_chain(chain,user_input:str):
     logger.info(f"Received user input: {user_input}")

@@ -1,5 +1,5 @@
 from fastapi.responses import JSONResponse
-from logger import logger
+from ..logger import logger
 from fastapi import Request
 
 

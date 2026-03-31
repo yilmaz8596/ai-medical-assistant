@@ -1,9 +1,9 @@
 
 from fastapi import APIRouter, File, UploadFile
 from typing import List 
-from modules.load_vector_store import load_vector_store
+from ..modules.load_vector_store import load_vector_store
 from fastapi.responses import JSONResponse
-from logger import logger
+from ..logger import logger
 
 router = APIRouter()
 
@@ -16,4 +16,4 @@ async def upload_pdfs(files: List[UploadFile] = File(...)):
         return JSONResponse(status_code=200, content={"message": "Files uploaded and processed successfully."})
     except Exception as e:
         logger.error(f"Error processing uploaded files: {str(e)}")
-        return JSONResponse(status_code=500, content={"message": "An error occurred while processing the files."})
+        return JSONResponse(status_code=500, content={"message": f"An error occurred while processing the files: {str(e)}"})

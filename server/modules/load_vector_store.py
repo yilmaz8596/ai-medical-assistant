@@ -11,7 +11,11 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 
+# Load environment from current working directory first, then fallback
 load_dotenv()
+env_path = Path(__file__).resolve().parents[1] / ".env"
+if not os.getenv("GOOGLE_API_KEY") and env_path.exists():
+    load_dotenv(dotenv_path=env_path)
 
 PINECONE_ENV = os.getenv("PINECONE_ENV", "us-east-1")
 PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME", "medical-index")
