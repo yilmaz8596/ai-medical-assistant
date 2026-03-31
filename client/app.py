@@ -1,5 +1,14 @@
 
 import streamlit as st 
+from components.upload import render_uploader
+from components.history_download import render_history_download
+from components.chatUI import render_chat
 
-st.set_page_config(page_title="AI Medical Assistant Chatbot",  layout="wide")
-st.title(" AI Medical Assistant Chatbot")
+
+st.set_page_config(page_title="AI Medical Assistant Chatbot", layout="wide", initial_sidebar_state="expanded")
+st.title("🩺 AI Medical Assistant Chatbot")
+
+
+render_uploader()
+render_chat()
+render_history_download()
