@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Ensure this directory is on sys.path so absolute imports work
+# regardless of how uvicorn is invoked
+sys.path.insert(0, os.path.dirname(__file__))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from middlewares.exception_handlers import catch_exceptions
